@@ -8,8 +8,8 @@ class ProductCard extends React.Component {
     const { name, productImage, price, id, addCartButton, freeShipping } = this.props;
 
     return (
-      <div>
-        <div className="flex m-auto border border-1 w-[300px]">
+      <div className="flex justify-center m-5">
+        <div className="flex border border-1 w-[300px] h-[400px]">
           <div className="flex flex-col gap-3 m-4">
             <Link to={ `/details/${id}` } data-testid="product-detail-link">
               <div data-testid="product" className="flex flex-col gap-3 p-2 items-center">
@@ -24,13 +24,13 @@ class ProductCard extends React.Component {
               </div>
             </Link>
             <button
-              className="inline-block px-6 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-400 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"
+              className="px-6 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-400 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"
               type="button"
               data-testid="product-add-to-cart"
               id={ id }
               onClick={ addCartButton }
             >
-              Add to Cart
+              Adicionar ao Carrinho
             </button>
           </div>
         </div>

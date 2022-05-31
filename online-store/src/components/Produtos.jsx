@@ -90,17 +90,19 @@ export default class Produtos extends React.Component {
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
         )}
-        {lista.map((items, index) => (
-          <ProductCard
-            key={ index }
-            name={ items.title }
-            productImage={ items.thumbnail }
-            price={ items.price }
-            id={ items.id }
-            freeShipping={ items.shipping.free_shipping }
-            addCartButton={ this.addCartButton }
-          />
-        ))}
+        <div className="flex flex-wrap justify-end mt-[-110%] mr-[5%]">
+          {lista.map((items, index) => (
+            <ProductCard
+              key={ index }
+              name={ items.title }
+              productImage={ items.thumbnail }
+              price={ items.price }
+              id={ items.id }
+              freeShipping={ items.shipping.free_shipping }
+              addCartButton={ this.addCartButton }
+            />
+          ))}
+        </div>
       </div>
     );
   }

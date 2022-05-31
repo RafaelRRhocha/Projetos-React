@@ -48,10 +48,13 @@ export default class Cart extends React.Component {
           </p>
         ) : (
           cart?.map((items, index) => (
-            <div key={ index } className="flex justify-center mt-5">
+            <div key={ index } className="flex justify-center mt-5 p-2">
               <div className="flex items-center gap-4">
-                <img className="w-[150px]" src={ items.thumbnail } alt="produto do carrinho" />
-                <p data-testid="shopping-cart-product-name">{items.title}</p>
+                <img className="w-[150px]" src={items.thumbnail} alt="produto do carrinho" />
+                <div className="flex flex-col">
+                  <p data-testid="shopping-cart-product-name">{items.title}</p>
+                  <p>{`R$ ${items.price}`}</p>
+                </div>
                 <div className="flex flex-col">
                   <button
                     id={ items.id }
