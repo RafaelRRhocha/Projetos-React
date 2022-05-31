@@ -49,25 +49,29 @@ export default class Cart extends React.Component {
         ) : (
           cart?.map((items, index) => (
             <div key={ index }>
-              <img src={ items.thumbnail } alt="produto do carrinho" />
-              <p data-testid="shopping-cart-product-name">{items.title}</p>
-              <button
-                id={ items.id }
-                type="button"
-                data-testid="product-increase-quantity"
-                onClick={ this.increaseQuantity }
-              >
-                +
-              </button>
-              <p data-testid="shopping-cart-product-quantity">{items.qntt}</p>
-              <button
-                id={ items.id }
-                type="button"
-                data-testid="product-decrease-quantity"
-                onClick={ this.decreaseQuantity }
-              >
-                -
-              </button>
+              <div className="flex items-center gap-1">
+                <img className="w-[150px]" src={ items.thumbnail } alt="produto do carrinho" />
+                <p data-testid="shopping-cart-product-name">{items.title}</p>
+                <div className="flex flex-col">
+                  <button
+                    id={ items.id }
+                    type="button"
+                    data-testid="product-increase-quantity"
+                    onClick={ this.increaseQuantity }
+                  >
+                    +
+                  </button>
+                  <p data-testid="shopping-cart-product-quantity">{items.qntt}</p>
+                  <button
+                    id={ items.id }
+                    type="button"
+                    data-testid="product-decrease-quantity"
+                    onClick={ this.decreaseQuantity }
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
             </div>
           ))
         )}

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Link } from 'react-router-dom';
 import { getDetails } from '../services/api';
 import Comments from './Comments';
+import { ShoppingCart } from 'phosphor-react';
 
 class Details extends React.Component {
   state = {
@@ -56,23 +56,28 @@ class Details extends React.Component {
     }
     return (
       <div>
-        <p data-testid="product-detail-name">{detalhes.title}</p>
-        <p>{detalhes.price}</p>
-        <img src={ detalhes.thumbnail } alt="Imagem do produto" />
-        <div>
-          <button
-            type="button"
-            data-testid="product-detail-add-to-cart"
-            onClick={ this.addCartButton }
-          >
-            Add to Cart
-          </button>
-          <Link to="/cart">
-            <button data-testid="shopping-cart-button" type="button">
-              Carrinho
+          <Link to="/cart" className="flex justify-end mr-[60px] gap-2 m-4 items-center hover:cursor-pointer">
+            <ShoppingCart
+              className="p-1 hover:animate-pulse"
+              data-testid="shopping-cart-button"
+              size={ 45 }
+            />
+            <p className="text-red-700" data-testid="shopping-cart-size">{total}</p>
+        </Link>
+        <div className="flex justify-center ml-[70px] w-[500px]">
+          <div className="flex flex-col items-center gap-3">
+            <img className="w-[200px]" src={ detalhes.thumbnail } alt="Imagem do produto" />
+            <p data-testid="product-detail-name">{detalhes.title}</p>
+            <p>{`R$ ${detalhes.price}`}</p>
+            <button
+              className="inline-block px-6 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-400 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"
+              type="button"
+              data-testid="product-detail-add-to-cart"
+              onClick={ this.addCartButton }
+            >
+              Adicionar ao Carrinho
             </button>
-          </Link>
-          <span data-testid="shopping-cart-size">{ total }</span>
+          </div>
         </div>
         <Comments id={ detalhes.id } />
       </div>

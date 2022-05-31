@@ -4,6 +4,7 @@ import { getQuery } from '../services/api';
 import ProductCard from './ProductCard';
 import Categorias from './Categorias';
 import CartButton from './CartButton';
+import SearchButton from './SearchButton';
 
 export default class Produtos extends React.Component {
   state = {
@@ -74,21 +75,9 @@ export default class Produtos extends React.Component {
     }
     return (
       <div>
-        <button
-          data-testid="query-button"
-          type="button"
-          onClick={ this.handleSearchButton }
-        >
-          Buscar
-        </button>
-        <input
-          type="text"
-          data-testid="query-input"
-          onChange={ this.handleChange }
-        />
+        <SearchButton handleChange={this.handleChange} handleSearchButton={ this.handleSearchButton }/>
         <div>
-          <CartButton redirectCart={ this.redirectCart } />
-          <span data-testid="shopping-cart-size">{total}</span>
+          <CartButton redirectCart={this.redirectCart} total={ total } />
         </div>
         <div>
           <Categorias
@@ -97,9 +86,9 @@ export default class Produtos extends React.Component {
           />
         </div>
         {lista.length === 0 && (
-          <span data-testid="home-initial-message">
+          <p className="text-center text-base mt-[-100%] text-slate-600" data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
-          </span>
+          </p>
         )}
         {lista.map((items, index) => (
           <ProductCard

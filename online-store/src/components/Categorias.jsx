@@ -23,17 +23,19 @@ class Categorias extends React.Component {
     const { handleButton } = this.props;
 
     return (
-      <div>
+      <div className="ml-2 w-40">
         {categorias.map((categoria) => (
-          <button
-            type="button"
-            key={ categoria.id }
-            data-testid="category"
-            name={ categoria.name }
-            onClick={ handleButton }
-          >
-            {categoria.name}
-          </button>
+          <div className="flex flex-col p-2 w-40">
+            <label htmlor={ categoria.name } className="flex items-center gap-1">
+              <input
+                type="radio"
+                key={ categoria.id }
+                data-testid="category"
+                name={ categoria.name }
+                onClick={ handleButton }
+              /> <p className="text-sm">{ categoria.name }</p>
+            </label>
+          </div>
         ))}
       </div>
     );
