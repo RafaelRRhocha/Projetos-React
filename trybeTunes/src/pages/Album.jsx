@@ -64,6 +64,7 @@ export default class Album extends React.Component {
             <p data-testid="artist-name">{`Artista: ${musicTest[0].artistName}`}</p>
           </div>
         )}
+        <div className="div-geral">
         {!loading
           && musicArr.length
           && musicArr.map((item, i) => (
@@ -77,6 +78,7 @@ export default class Album extends React.Component {
               ) }
             />
           ))}
+        </div>
       </div>
     );
   }

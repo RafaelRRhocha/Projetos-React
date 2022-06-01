@@ -1,6 +1,5 @@
 .div-album {
-  border: 1px solid white;
-  display: none;
+  display: inline-block;
   margin: 80px;
 }
 
@@ -29,8 +28,10 @@
 .sec-album {
   display: flex;
   justify-content: left;
-
-  /* border: 1px solid white; */
   margin-left: auto;
   max-width: 800px;
+}
+
+.div-geral {
+  margin-top: -425px;
 }

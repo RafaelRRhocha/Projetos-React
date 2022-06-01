@@ -46,7 +46,7 @@ export default class ProfileEdit extends React.Component {
     const { history } = this.props;
     this.setState({ loading: true });
     await updateUser(user);
-    history.push('/Projetos/trybeTunes/profile/');
+    history.push('/profile');
   };
 
   render() {

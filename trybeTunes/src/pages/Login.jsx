@@ -19,7 +19,7 @@ export default class Login extends React.Component {
     const { history } = this.props;
     this.setState(() => ({ loading: true }));
     await createUser({ name: login, image: imagem });
-    history.push("/Projetos/trybeTunes/search/");
+    history.push("/search");
   };
 
   render() {
