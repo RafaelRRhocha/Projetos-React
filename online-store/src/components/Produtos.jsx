@@ -58,6 +58,7 @@ export default class Produtos extends React.Component {
   handleButton = async ({ target: { name } }) => {
     const getApiReq = await getQuery(name);
     this.setState({ lista: getApiReq });
+    console.log('essa é a trybe');
   };
 
   redirectCart = () => {
@@ -90,7 +91,7 @@ export default class Produtos extends React.Component {
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
         )}
-        <div className="flex flex-wrap justify-end mt-[-110%] mr-[5%]">
+        <div className="flex flex-wrap max-w-[85%] justify-center my-[-100%] mr-[5%] m-auto">
           {lista.map((items, index) => (
             <ProductCard
               key={ index }

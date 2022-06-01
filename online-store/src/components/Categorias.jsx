@@ -23,13 +23,12 @@ class Categorias extends React.Component {
     const { handleButton } = this.props;
 
     return (
-      <div className="ml-2 w-40">
+      <div className="inline-block ml-2 w-40">
         {categorias.map((categoria) => (
-          <div className="flex flex-col p-2 w-40">
+          <div key={ categoria.id } className="flex flex-col p-2 w-40">
             <label htmlor={ categoria.name } className="flex items-center gap-1">
               <input
                 type="radio"
-                key={ categoria.id }
                 data-testid="category"
                 name={ categoria.name }
                 onClick={ handleButton }
