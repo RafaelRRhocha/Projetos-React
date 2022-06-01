@@ -20,6 +20,7 @@ export default class Login extends React.Component {
     this.setState(() => ({ loading: true }));
     await createUser({ name: login, image: imagem });
     history.push("/search");
+    console.log('essa é a trybe');
   };
 
   render() {
