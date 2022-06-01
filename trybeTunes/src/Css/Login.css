@@ -32,9 +32,12 @@ body {
 }
 
 .login-form {
-  left: 50%;
-  position: absolute;
-  top: 35%;
+  display: flex;
+  flex-direction: column;
+  max-width: 440px;
+  align-items: left;
+  margin-left: 650px;
+  margin-top: -420px;
 }
 
 .login-form label {
@@ -69,6 +72,7 @@ body {
   border: 1px solid var(--pinkLogin);
   color: var(--pinkLogin);
   margin-left: 20px;
+  max-width: 100px;
   padding: 15px;
   text-decoration: none;
   text-transform: uppercase;
