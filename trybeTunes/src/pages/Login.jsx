@@ -54,7 +54,7 @@ export default class Login extends React.Component {
                   name="imagem"
                   value={imagem}
                   onChange={this.onImageChange}
-                  placeholder="Selecione a sua Imagem"
+                  placeholder="Cole o link da sua Imagem Aqui"
                 />
               </label>
               <button
