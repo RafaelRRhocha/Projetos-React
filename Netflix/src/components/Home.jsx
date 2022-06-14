@@ -11,8 +11,8 @@ export class Home extends React.Component {
     this.getUserState()
   }
 
-  getUserState = async () => {
-    const updateUser = await getUser();
+  getUserState = () => {
+    const updateUser = getUser();
     this.setState({ user: updateUser });
   };
 

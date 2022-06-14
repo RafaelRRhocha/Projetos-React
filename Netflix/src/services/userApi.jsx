@@ -1,7 +1,7 @@
 const userKey = 'userKey';
 
-const readUser = () => JSON.parse(localStorage.getItem(userKey));
 const saveUser = (user) => localStorage.setItem(userKey, JSON.stringify(user));
+const readUser = () => JSON.parse(localStorage.getItem(userKey));
 
 export const createUser = (user) => {
   const emptyUser = {
