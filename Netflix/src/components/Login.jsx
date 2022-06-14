@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import '../css/Login.css';
-import { createUser } from "../services/userApi";
+import logo from '../assets/netflix-icon.svg';
+import { saveUser } from "../services/userApi";
 
 export class Login extends React.Component {
   state = {
@@ -13,7 +14,7 @@ export class Login extends React.Component {
   handlePage = () => {
     const { login } = this.state;
     const { history } = this.props;
-    createUser({ name: login });
+    saveUser({ name: login });
     history.push('/home');
   };
 
@@ -21,16 +22,24 @@ export class Login extends React.Component {
     const { login } = this.state;
     const n3 = 3;
     return (
-      <>
-        <h1 className="text-zinc-100 text-center mt-[120px] text-[110px]">NETFLIX</h1>
+      <div className="teste">
+        <div className="flex items-center justify-between">
+          <a href="https://www.netflix.com/br/" target="_blank" rel="noreferrer">
+            <img src={logo} alt="Netflix Logo" className="ml-[110px]" />
+          </a>
+          <a href="https://rafaelrrhocha-portfolio.vercel.app" target="_blank" className="text-zinc-200 underline decoration-1 mr-[170px]" rel="noreferrer">About Me</a>
+        </div>
+        <h1 className="text-zinc-100 text-center text-[50px]">Filmes, séries e muito mais.</h1>
+        <h1 className="text-zinc-100 text-center text-[50px]">Sem limites.</h1>
+        <p className="text-zinc-100 text-center text-[50px]">Assista onde quiser. Cancele quando quiser.</p>
         <div className="flex flex-col items-center mt-[20px]">
           <form className="flex flex-col gap-3">
-            <input type="text" onChange={ this.onInputChange } placeholder="Digite o Seu Usuário" className="bg-zinc-700 w-[450px] h-[50px] p-4 text-zinc-200" />
-            <input type="password" placeholder="Digite a Sua Senha" className="bg-zinc-700 h-[50px] p-4 text-zinc-200" />
-            <button type="submit" onClick={ this.handlePage } disabled={ login.length < n3 } className="flex justify-center items-center m-auto border border-1 border-neutral-900 w-[75px] h-[40px] text-zinc-800 bg-zinc-300 hover:bg-zinc-800 hover:text-zinc-100 hover:cursor-pointer disabled:opacity-50">Entrar</button>
+            <input type="text" onChange={ this.onInputChange } placeholder="Digite o Seu Usuário" className="bg-zinc-200 w-[450px] h-[50px] p-4 text-zinc-700" />
+            <input type="password" placeholder="Digite a Sua Senha" className="bg-zinc-200 h-[50px] p-4 text-zinc-700" />
+            <button type="submit" onClick={ this.handlePage } disabled={ login.length < n3 } className="flex justify-center items-center m-auto border border-1 border-neutral-900 w-[75px] h-[40px] text-zinc-200 bg-red-600 hover:bg-red-600 hover:text-zinc-800 hover:cursor-pointer disabled:opacity-50 disabled:hover:bg-red-600 disabled:hover:text-zinc-200">Entrar</button>
           </form>
         </div>
-      </>
+      </div>
     )
   }
 

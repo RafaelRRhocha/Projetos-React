@@ -3,6 +3,10 @@
 body {
   font-family: Bebas Neue;
   background-color: #0d1117;
-  /* background-image: url('../assets/netflix-wallpaper.jpg');
-  background-size: 100%; */
+}
+
+.teste {
+  background-image: url('../assets/netflix-back-brush.jpg');
+  background-size: cover;
+  height: 100vh;
 }

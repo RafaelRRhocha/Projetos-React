@@ -1,6 +1,5 @@
 import React from "react"
-import { Loading } from "./Loading";
-import { getUser } from "../services/userApi";
+import { readUser } from "../services/userApi";
 
 export class Home extends React.Component {
   state = {
@@ -12,7 +11,7 @@ export class Home extends React.Component {
   }
 
   getUserState = () => {
-    const updateUser = getUser();
+    const updateUser = readUser();
     this.setState({ user: updateUser });
   };
 
@@ -20,12 +19,8 @@ export class Home extends React.Component {
     const { user: { name } } = this.state;
 
     return (
-      <header>
-        {!name ? (
-          <Loading />
-        ) : (
-            <p>{name}</p>
-        )}
+      <header className="text-zinc-100 border-b">
+        <p className="p-4 text-[20px] text-left">{`Bem vindo! ${name}`}</p>
       </header>
     )
   }
