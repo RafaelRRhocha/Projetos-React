@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Loading } from "./Loading";
 import { CaretLeft, CaretRight } from "phosphor-react";
 import "../../css/Main.css"
+import { getHomeList } from "../../services/moviesApi";
 
 export class MovieList extends React.Component {
   state = {
@@ -14,7 +15,11 @@ export class MovieList extends React.Component {
     this.setLoading();
   }
 
-  setLoading = async () => this.setState({loading: false});
+  setLoading = async () => {
+    this.setState({loading: true});
+    await getHomeList();
+    this.setState({loading: false});
+  };
 
   handleLeftMovies = () => {
     const { changeMovies } = this.state;
@@ -39,14 +44,14 @@ export class MovieList extends React.Component {
       <>
         {loading ? <Loading /> : (
           <>
-            <div className="flex flex-col mb-[30px] mt-[17px] changeOpacity">
+            <div className="flex flex-col mt-[80px] changeOpacity">
               <h1 className="text-[30px] ml-[30px]">{title}</h1>
               <div className="overflow-x-hidden">
                 <div onClick={this.handleLeftMovies}>
-                  <CaretLeft size={32} className="absolute w-[40px] h-[305px] left-0 z-50 cursor-pointer opacity-0"/>
+                  <CaretLeft size={32} className="absolute w-[40px] h-[305px] left-0 z-40 cursor-pointer opacity-0"/>
                 </div>
                 <div onClick={this.handleRightMovies}>
-                  <CaretRight size={32} className="absolute w-[40px] h-[305px] right-0 z-50 cursor-pointer opacity-0"/>
+                  <CaretRight size={32} className="absolute w-[40px] h-[305px] right-0 z-40 cursor-pointer opacity-0"/>
                 </div>
                 <div className="ml-[30px]">
                   <div style={{ marginLeft: changeMovies, width: items.results.length * 150 }} className="flex flex-row gap-6 transitionMovies">

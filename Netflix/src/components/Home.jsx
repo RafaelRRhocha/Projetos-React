@@ -9,11 +9,16 @@ export class Home extends React.Component {
   state = {
     user: {},
     movies: [],
+    bgHeader: false,
   };
 
   componentDidMount() {
     this.getUserState();
     this.loadAll();
+    window.addEventListener('scroll', () => {
+      if(window.scrollY >= 10) { this.setState({bgHeader: true}) }
+      if(window.scrollY < 10) { this.setState({bgHeader: false}) }
+    })
   }
 
   getUserState = () => {
@@ -27,11 +32,11 @@ export class Home extends React.Component {
   }
 
   render() {
-    const { user: { name, image }, movies } = this.state;
+    const { user: { name, image }, movies, bgHeader } = this.state;
     return (
       <>
         <div>
-          <Header name={name} image={image} />
+          <Header name={name} image={image} bgHeader={bgHeader} />
         </div>
         <div>
             <div className="text-zinc-100">

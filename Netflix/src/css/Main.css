@@ -2,13 +2,18 @@
 
 body {
   font-family: Bebas Neue;
-  background-color: #0d1117;
+  background-color: #141414;
 }
 
 .login-page {
   background-image: url('../assets/netflix-back-brush.jpg');
   background-size: cover;
   height: 100vh;
+}
+
+.changeBg, .p, .img {
+  background-color: red;
+  transition: all ease 0.5s;
 }
 
 .changeOpacity:hover .absolute {
@@ -20,3 +25,4 @@ body {
 .transitionMovies {
   transition: all ease 1s;
 }
+
