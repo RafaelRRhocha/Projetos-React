@@ -36,7 +36,7 @@ body {
 }
 
 .setShadowLeft {
-  mask-image: linear-gradient(to left, #191818 20%, transparent 80%);
+  mask-image: linear-gradient(to left, #191818 25%, transparent 80%);
 }
 
 .gradientImage {
