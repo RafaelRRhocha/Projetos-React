@@ -10,11 +10,6 @@ const fetchMovieApi = async (query) => {
 export const getHomeList = async () => {
   return [
     {
-      slug: 'originals',
-      title: 'Originais Da Netflix',
-      items: await fetchMovieApi(`/discover/tv?with_network=123&language=pt-BR&api_key=${apiKey}`),
-    },
-    {
       slug: 'trending',
       title: 'Recomendados para Você',
       items: await fetchMovieApi(`/discover/tv?with_network=123&language=pt-BR&api_key=${apiKey}`),

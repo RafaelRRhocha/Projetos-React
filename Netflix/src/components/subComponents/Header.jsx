@@ -6,6 +6,12 @@ import '../../css/Main.css';
 import { MagnifyingGlass } from "phosphor-react";
 
 export class Header extends React.Component {
+
+  viewProfile = () => {
+    const { history } = this.props;
+    history.push('/profile');
+  }
+
   render() {
     const { name, bgHeader } = this.props;
     return (
@@ -15,7 +21,7 @@ export class Header extends React.Component {
           <input type="text" placeholder="Digite o Nome do Filme" className="h-6 w-[300px] text-zinc-800 p-1" />
           <MagnifyingGlass size={20} className="hover:cursor-pointer text-zinc-100"/>
         </div>
-        <div className="flex gap-4 items-center mr-[40px]">
+        <div onClick={ this.viewProfile } className="flex gap-4 items-center mr-[40px]">
           <img src={profile} alt="imagem de perfil" className="w-[45px] h-[45px] rounded-sm hover:cursor-pointer img" />
           {bgHeader && <p className="underline decoration-1 hover:cursor-pointer text-zinc-100 p">{name}</p>}
         </div>
@@ -27,4 +33,7 @@ export class Header extends React.Component {
 Header.propTypes =  {
   name: PropTypes.string.isRequired,
   bgHeader: PropTypes.bool.isRequired,
+  history: PropTypes.shape(() => ({
+    push: PropTypes.func.isRequired,
+  }))
 };
