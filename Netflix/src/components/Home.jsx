@@ -5,6 +5,7 @@ import { MovieList } from "./subComponents/MovieList";
 import { Footer } from "./subComponents/Footer";
 import { Header } from "./subComponents/Header";
 import { FeatureMovie } from "./subComponents/FeatureMovie";
+import { Loading } from "./subComponents/Loading";
 
 export class Home extends React.Component {
   state = {
@@ -12,16 +13,24 @@ export class Home extends React.Component {
     movies: [],
     bgHeader: false,
     feature: null,
+    loading: false,
   };
 
   componentDidMount() {
     this.getUserState();
     this.loadAll();
+    this.setLoading();
     window.addEventListener('scroll', () => {
       if(window.scrollY >= 10) { this.setState({bgHeader: true}) }
       if(window.scrollY < 10) { this.setState({bgHeader: false}) }
     })
   }
+
+  setLoading = async () => {
+    this.setState({loading: true});
+    await getHomeList();
+    this.setState({loading: false});
+  };
 
   getUserState = () => {
     const updateUser = readUser();
@@ -38,23 +47,27 @@ export class Home extends React.Component {
   }
 
   render() {
-    const { user: { name, image }, movies, bgHeader, feature } = this.state;
+    const { user: { name, image }, movies, bgHeader, feature, loading } = this.state;
     return (
       <>
-        <div>
-          <Header name={name} image={image} bgHeader={bgHeader} />
-        </div>
-        <div>
-            {feature && <FeatureMovie feature={feature} />}
-            <div className="text-zinc-100">
-              {movies.map((movies, i) => (
-                <MovieList key={i} title={movies.title} items={movies.items}/>
-              ))}
+        {loading ? <Loading /> : (
+          <>
+            <div>
+              <Header name={name} image={image} bgHeader={bgHeader} />
             </div>
-        </div>
-        <div>
-          <Footer />
-        </div>
+            <div>
+                {feature && <FeatureMovie feature={feature} />}
+                <div className="text-zinc-100">
+                  {movies.map((movies, i) => (
+                    <MovieList key={i} title={movies.title} items={movies.items}/>
+                  ))}
+                </div>
+            </div>
+            <div>
+              <Footer />
+            </div>
+          </>
+        )}
       </>
     )
   }
