@@ -6,13 +6,14 @@ import '../../css/Main.css';
 import { MagnifyingGlass } from "phosphor-react";
 
 export class Header extends React.Component {
-
-  viewProfile = () => {
-    const { history } = this.props;
-    history.push('/profile');
+  state = {
+    profileImage: '',
   }
 
+  viewProfile = () => this.props.history.push('/profile');
+
   render() {
+    const { profileImage } = this.state;
     const { name, bgHeader } = this.props;
     return (
       <header className="fixed z-50 top-0 left-0 right-0 h-[70px] flex items-center justify-between changeBg">
@@ -22,7 +23,7 @@ export class Header extends React.Component {
           <MagnifyingGlass size={20} className="hover:cursor-pointer text-zinc-100"/>
         </div>
         <div onClick={ this.viewProfile } className="flex gap-4 items-center mr-[40px]">
-          <img src={profile} alt="imagem de perfil" className="w-[45px] h-[45px] rounded-sm hover:cursor-pointer img" />
+          <img src={profileImage.length <= 3 ? profile : profileImage} alt="imagem de perfil" className="w-[45px] h-[45px] rounded-sm hover:cursor-pointer img" />
           {bgHeader && <p className="underline decoration-1 hover:cursor-pointer text-zinc-100 p">{name}</p>}
         </div>
     </header>

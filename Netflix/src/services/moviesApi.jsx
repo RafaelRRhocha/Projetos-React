@@ -7,6 +7,25 @@ const fetchMovieApi = async (query) => {
   return resolveJson;
 }
 
+export const getMovieInfo = async (id, type) => {
+  let info = {};
+  if(id) {
+    switch(type) {
+      case 'movie':
+        info = await fetchMovieApi(`/movie/${id}?language=pt-BR&api_key=${apiKey}`)
+      break;
+
+      case 'tv':
+        info = await fetchMovieApi(`/tv/${id}?language=pt-BR&api_key=${apiKey}`)
+      break;
+
+      default: info = null;
+      break;
+    }
+  }
+  return info;
+}
+
 export const getHomeList = async () => {
   return [
     {
@@ -25,9 +44,24 @@ export const getHomeList = async () => {
       items: await fetchMovieApi(`/discover/movie?with_genres=28&language=pt-BR&api_key=${apiKey}`),
     },
     {
+      slug: 'drama',
+      title: 'Drama',
+      items: await fetchMovieApi(`/discover/movie?with_genres=18&language=pt-BR&api_key=${apiKey}`),
+    },
+    {
+      slug: 'mistery',
+      title: 'Mistério',
+      items: await fetchMovieApi(`/discover/movie?with_genres=9648&language=pt-BR&api_key=${apiKey}`),
+    },
+    {
       slug: 'comedy',
       title: 'Comédia',
       items: await fetchMovieApi(`/discover/movie?with_genres=35&language=pt-BR&api_key=${apiKey}`),
+    },
+    {
+      slug: 'crime',
+      title: 'Crime',
+      items: await fetchMovieApi(`/discover/movie?with_genres=80&language=pt-BR&api_key=${apiKey}`),
     },
     {
       slug: 'horror',

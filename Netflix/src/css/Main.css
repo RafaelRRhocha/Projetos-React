@@ -30,3 +30,16 @@ body {
 .z-20:hover {
   transition: ease-in 0.2s;
 }
+
+.changeHW {
+  height: 100vh;
+}
+
+.setShadowLeft {
+  mask-image: linear-gradient(to left, #191818 20%, transparent 80%);
+}
+
+.gradientImage {
+  -webkit-mask-image: linear-gradient(to bottom, #191818 10%, transparent 90%);
+  mask-image: linear-gradient(to bottom, #191818 10%, transparent 90%);
+}

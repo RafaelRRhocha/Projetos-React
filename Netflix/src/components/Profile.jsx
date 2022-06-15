@@ -9,8 +9,6 @@ export class Profile extends React.Component {
     profileImage: '',
   }
 
-  onInputChange = ({ target: { value } }) => this.setState({ profileImage: value });
-
   setBack = () => this.props.history.push('/home');
 
   setProfileEdit = () => this.props.history.push('/profile/edit');
@@ -27,12 +25,12 @@ export class Profile extends React.Component {
             <p>{`Endereço de Email: ${user.endEmail}`}</p>
           </div>
         </div>
-        <div className="text-zinc-100 text-center flex items-center justify-center gap-3 m-5">
+        <form className="text-zinc-100 text-center flex items-center justify-center gap-3 m-5">
           <ArrowLeft size={15} className="animate-pulse" />
           <button type="submit" onClick={ this.setBack }>Voltar</button>
           <button type="submit" onClick={ this.setProfileEdit }>Editar Perfil</button>
           <ArrowRight size={15} className="animate-pulse" />
-        </div>
+        </form>
       </>
     )
   }

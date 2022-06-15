@@ -60,6 +60,7 @@ export class MovieList extends React.Component {
                         <img src={`https://image.tmdb.org/t/p/w300/${element.poster_path}`} alt={title} className="max-w-[1000px] h-[315px] w-[210px] scale-95 transition ease-in-out delay-100 hover:scale-100 hover:cursor-pointer duration-250 hover:opacity-[.5] z-20" />
                         <div className="flex flex-col gap-4 justify-center items-center absolute w-[100%] h-[100%] z-10">
                           <p className="text-[20px] text-center">{element.name}</p>
+                          <p className="text-[20px] text-center">{element.title}</p>
                           <PlayCircle size={50} className="animate-pulse" />
                           <span>Assistir</span>
                         </div>
