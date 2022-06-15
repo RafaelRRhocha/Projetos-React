@@ -7,14 +7,16 @@ import { saveUser } from "../services/userApi";
 export class Login extends React.Component {
   state = {
     login: '',
+    urlImage: '',
   };
 
   onInputChange = ({ target: { value } }) => this.setState({ login: value });
+  onInputChangeUrl = ({ target: { value } }) => this.setState({ urlImage: value });
 
   handlePage = () => {
-    const { login } = this.state;
+    const { login, urlImage } = this.state;
     const { history } = this.props;
-    saveUser({ name: login });
+    saveUser({ name: login, image: urlImage });
     history.push('/home');
   };
 
@@ -35,7 +37,7 @@ export class Login extends React.Component {
         <div className="flex flex-col items-center mt-[20px]">
           <form className="flex flex-col gap-3">
             <input type="text" onChange={ this.onInputChange } placeholder="Digite o Seu Usuário" className="bg-zinc-200 w-[450px] h-[50px] p-4 text-zinc-700" />
-            <input type="password" placeholder="Digite a Sua Senha" className="bg-zinc-200 h-[50px] p-4 text-zinc-700" />
+            <input type="text"onChange={ this.onInputChangeUrl } placeholder="Cole o Link da Sua Imagem de Perfil" className="bg-zinc-200 h-[50px] p-4 text-zinc-700" />
             <button type="submit" onClick={ this.handlePage } disabled={ login.length < n3 } className="flex justify-center items-center m-auto border border-1 border-neutral-900 w-[75px] h-[40px] text-zinc-200 bg-red-600 hover:bg-red-600 hover:text-zinc-800 hover:cursor-pointer disabled:opacity-50 disabled:hover:bg-red-600 disabled:hover:text-zinc-200">Entrar</button>
           </form>
         </div>
