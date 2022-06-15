@@ -2,7 +2,7 @@
 
 body {
   font-family: Bebas Neue;
-  background-color: #141414;
+  background-color: #191818;
 }
 
 .login-page {
@@ -12,8 +12,8 @@ body {
 }
 
 .changeBg, .p, .img {
-  background-color: red;
-  transition: all ease 0.5s;
+  background-color: #141414;
+  transition: all ease 0.2s;
 }
 
 .changeOpacity:hover .absolute {
@@ -26,3 +26,6 @@ body {
   transition: all ease 1s;
 }
 
+.z-20:hover {
+  transition: ease-in 0.2s;
+}

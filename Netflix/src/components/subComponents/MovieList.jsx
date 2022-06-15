@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { Loading } from "./Loading";
-import { CaretLeft, CaretRight } from "phosphor-react";
+import { CaretLeft, CaretRight, PlayCircle } from "phosphor-react";
 import "../../css/Main.css"
 import { getHomeList } from "../../services/moviesApi";
 
@@ -44,7 +44,7 @@ export class MovieList extends React.Component {
       <>
         {loading ? <Loading /> : (
           <>
-            <div className="flex flex-col mt-[80px] changeOpacity">
+            <div className="flex flex-col mt-[80px] changeOpacity scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin">
               <h1 className="text-[30px] ml-[30px]">{title}</h1>
               <div className="overflow-x-hidden">
                 <div onClick={this.handleLeftMovies}>
@@ -56,7 +56,13 @@ export class MovieList extends React.Component {
                 <div className="ml-[30px]">
                   <div style={{ marginLeft: changeMovies, width: items.results.length * 150 }} className="flex flex-row gap-6 transitionMovies">
                     {items.results.length > 0 && items.results.map((element, i) => (
-                      <img src={`https://image.tmdb.org/t/p/w300/${element.poster_path}`} alt={title} key={i} className="w-[210px] scale-95 transition ease-in-out delay-100 hover:scale-100 hover:cursor-pointer duration-250 hover:animate-pulse" />
+                      <div key={i} className="flex flex-col relative">
+                        <img src={`https://image.tmdb.org/t/p/w300/${element.poster_path}`} alt={title} className="max-w-[1000px] h-[315px] w-[210px] scale-95 transition ease-in-out delay-100 hover:scale-100 hover:cursor-pointer duration-250 hover:opacity-[.5] z-20" />
+                        <div className="flex flex-col gap-4 justify-center items-center absolute w-[100%] h-[100%] z-10">
+                          <p className="text-[30px] text-center">{element.name}</p>
+                          <PlayCircle size={50} className="animate-pulse" />
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
