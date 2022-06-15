@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import '../css/Login.css';
+import '../css/Main.css';
 import logo from '../assets/netflix-icon.svg';
 import { saveUser } from "../services/userApi";
 
@@ -22,7 +22,7 @@ export class Login extends React.Component {
     const { login } = this.state;
     const n3 = 3;
     return (
-      <div className="teste">
+      <div className="login-page">
         <div className="flex items-center justify-between">
           <a href="https://www.netflix.com/br/" target="_blank" rel="noreferrer">
             <img src={logo} alt="Netflix Logo" className="ml-[110px]" />
