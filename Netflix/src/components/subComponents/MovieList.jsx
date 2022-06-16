@@ -33,18 +33,17 @@ export class MovieList extends React.Component {
           <h1 className="text-[30px] ml-[30px]">{title}</h1>
           <div className="overflow-x-hidden">
             <div onClick={this.handleLeftMovies}>
-              <CaretLeft size={32} className="absolute w-[40px] h-[305px] left-0 z-40 cursor-pointer opacity-0"/>
+              <CaretLeft size={32} className="absolute w-[40px] h-[305px] left-0 z-40 cursor-pointer opacity-0 changeOpacityAll"/>
             </div>
             <div onClick={this.handleRightMovies}>
-              <CaretRight size={32} className="absolute w-[40px] h-[305px] right-0 z-40 cursor-pointer opacity-0"/>
+              <CaretRight size={32} className="absolute w-[40px] h-[305px] right-0 z-40 cursor-pointer opacity-0 changeOpacityAll"/>
             </div>
             <div className="ml-[30px]">
               <div style={{ marginLeft: changeMovies, width: items.results.length * 150 }} className="flex flex-row gap-6 transitionMovies">
                 {items.results.length > 0 && items.results.map((element, i) => (
-                  console.log(element),
                   <div key={i} className="flex flex-col relative">
-                    <img src={`https://image.tmdb.org/t/p/w300/${element.poster_path}`} alt={title} className="max-w-[1000px] h-[315px] w-[210px] scale-95 transition ease-in-out delay-100 hover:scale-100 hover:cursor-pointer duration-250 hover:opacity-[.5] z-20" />
-                    <div className="flex flex-col gap-4 justify-center items-center absolute w-[100%] h-[100%] z-10">
+                    <img src={`https://image.tmdb.org/t/p/w300/${element.poster_path}`} alt={title} className="max-w-[1000px] h-[315px] w-[210px] scale-95 transition ease-in-out delay-100 hover:scale-100 hover:cursor-pointer duration-250 hover:opacity-[.5] z-0" />
+                    <div className="flex flex-col gap-4 justify-center items-center absolute w-[100%] h-[100%] z-[-1]">
                       <p className="text-[20px] text-center">{element.title}</p>
                       <p className="text-[20px] text-center">{element.name}</p>
                       <PlayCircle size={50} className="animate-pulse" />

@@ -13,7 +13,7 @@ export class FeatureMovie extends React.Component {
     const url = `https://image.tmdb.org/t/p/original${feature.backdrop_path}`;
     const imageImdb = <img src={imdb}  alt="imdb" className="w-[50px]" />;
     return(
-      <div className="changeHW">
+      <div className="h-[100vh]">
           <div className="setShadowLeft">
             <img src={url}  alt="imagem do filme em destaque" className="relative gradientImage"/>
           </div>

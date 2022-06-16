@@ -5,21 +5,16 @@ import profileImageInitial from '../assets/profileImage.png';
 import { ArrowLeft, ArrowRight } from 'phosphor-react';
 
 export class Profile extends React.Component {
-  state = {
-    profileImage: '',
-  }
-
   setBack = () => this.props.history.push('/home');
 
   setProfileEdit = () => this.props.history.push('/profile/edit');
 
   render() {
-    const { profileImage } = this.state;
     const user = readUser();
     return(
       <>
         <div className="flex gap-3 items-center justify-center mt-[200px] text-zinc-100">
-          <img src={profileImage.length <= 3 ? profileImageInitial : profileImage} alt="imagem de perfil" className="w-[100px]" />
+          <img src={!user.profile ? profileImageInitial : user.profile} alt="imagem de perfil" className="w-[100px] h-[100px]" />
           <div className="flex flex-col gap-1">
             <p>{`Nome de Usuário: ${user.name}`}</p>
             <p>{`Endereço de Email: ${user.endEmail}`}</p>

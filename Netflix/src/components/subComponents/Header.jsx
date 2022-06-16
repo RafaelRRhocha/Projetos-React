@@ -4,17 +4,14 @@ import logo from '../../assets/netflix-icon-main.png';
 import profile from '../../assets/profileImage.png';
 import '../../css/Main.css';
 import { MagnifyingGlass } from "phosphor-react";
+import { readUser } from "../../services/userApi";
 
 export class Header extends React.Component {
-  state = {
-    profileImage: '',
-  }
-
   viewProfile = () => this.props.history.push('/profile');
 
   render() {
-    const { profileImage } = this.state;
     const { name, bgHeader } = this.props;
+    const user = readUser();
     const allClass = "fixed z-50 top-0 left-0 right-0 h-[70px] flex justify-between";
     const allClassWithBg = "fixed z-50 top-0 left-0 right-0 h-[70px] flex justify-between changeBg";
     return (
@@ -27,8 +24,8 @@ export class Header extends React.Component {
           </div>
         )}
         <div onClick={ this.viewProfile } className="flex gap-4 items-center mr-[40px]">
-          <img src={profileImage.length <= 3 ? profile : profileImage} alt="imagem de perfil" className="w-[45px] h-[45px] rounded-sm hover:cursor-pointer img" />
-          {bgHeader && <p className="underline decoration-1 hover:cursor-pointer text-zinc-100 p">{name}</p>}
+          <img src={!user.profile ? profile : user.profile} alt="imagem de perfil" className="w-[45px] h-[45px] rounded-sm hover:cursor-pointer" />
+          {bgHeader && <p className="underline decoration-1 hover:cursor-pointer text-zinc-100">{name}</p>}
         </div>
     </header>
     )

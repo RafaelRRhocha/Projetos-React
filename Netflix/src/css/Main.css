@@ -12,12 +12,12 @@ body {
   height: 100vh;
 }
 
-.changeBg, .p, .img {
+.changeBg {
   background-color: #141414;
-  transition: all ease 0.2s;
+  transition: all ease-in 0.2s;
 }
 
-.changeOpacity:hover .absolute {
+.changeOpacity:hover .changeOpacityAll {
   opacity: 1;
   transition: all ease 0.5s;
   user-select: none;
@@ -27,12 +27,8 @@ body {
   transition: all ease 1s;
 }
 
-.z-20:hover {
+.scale-95:hover {
   transition: ease-in 0.2s;
-}
-
-.changeHW {
-  height: 100vh;
 }
 
 .setShadowLeft {
