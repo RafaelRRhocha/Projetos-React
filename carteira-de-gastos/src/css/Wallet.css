@@ -1,0 +1,191 @@
+/* stylelint-disable linebreaks */
+.header {
+  background-color: #383838;
+  color: white;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.header span {
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: -450px;
+  text-transform: uppercase;
+}
+
+.header , .title-container {
+  align-items: center;
+  display: flex;
+}
+
+.title-container {
+  text-transform: uppercase;
+}
+
+.user-icon {
+  margin-right: 10px;
+}
+
+.header .wallet {
+  margin-left: 50px;
+  margin-right: 20px;
+  width: 50px;
+}
+
+.wallet-container {
+  display: flex;
+  font-size: large;
+  justify-content: space-around;
+  margin-right: 50px;
+  padding: 10px;
+}
+
+.wallet-container .wallet-email {
+  align-items: center;
+  display: flex;
+  margin-right: 20px;
+}
+
+.wallet-container .wallet-funds {
+  align-items: center;
+  display: flex;
+}
+
+.wallet-container .wallet-funds .user-funds {
+  margin-left: 10px;
+}
+
+.exit {
+  margin-left: 30px;
+}
+
+.exit:hover {
+  cursor: pointer;
+}
+
+.form {
+  align-items: center;
+  background-color: #222;
+  color: white;
+  display: flex;
+  gap: 5px;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.form .clean {
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  color: black;
+  display: inline-block;
+  font-weight: 400;
+  outline: 0;
+  padding: 10px 0 10px 15px;
+  position: relative;
+  text-indent: 20px;
+  transition: all 0.3s ease-in-out;
+  width: 190px;
+}
+
+.form label {
+  color: #1f8d37;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.form .clean::-moz-input-placeholder {
+  color: #efefef;
+  font-weight: 300;
+  padding-left: 5px;
+  text-indent: 0;
+}
+
+.form .clean:active , .form .clean:focus {
+  background: white;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  color: #377d6a;
+  text-indent: 0;
+}
+
+.form .clean:active::-moz-input-placeholder , .form .clean:focus::-moz-input-placeholder {
+  color: black;
+}
+
+.form button {
+  background-color: #1f8d37;
+  border: 5px black;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 10px;
+  padding: 13px 15px;
+  transition: all 0.5s ease-out;
+  transition-property: background-color, color;
+}
+
+.form select {
+  color: #377d6a;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 8px 10px;
+}
+
+.table {
+  align-items: center;
+  color: white;
+  font-size: medium;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.table tr:nth-child( 2n ) {
+  background-color: #2eb34b;
+  color: black;
+  padding: 10px;
+}
+
+.table tr:nth-child( odd ) {
+  background-color: #222;
+  color: white;
+  padding: 10px;
+}
+
+.table th {
+  background-color: black;
+  color: white;
+  padding: 5px;
+}
+
+.table button {
+  background: none;
+  border: 5px black;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  transition: all 0.5s ease-out;
+  transition-property: background-color, color;
+}
+
+.table tr:nth-child( 2n ) button {
+  color: black;
+}
+
+.table tr:nth-child( odd ) button {
+  color: white;
+}
+
+.table .button-container {
+  align-items: center;
+  display: flex;
+  gap: 10;
+  justify-content: center;
+}
+
+.x-circle:hover {
+  cursor: pointer;
+}
