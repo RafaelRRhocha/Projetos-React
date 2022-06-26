@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+body {
+  font-family: Bree Serif;
+  background-color: #191818;
+}
+
+.login-page {
+  background-image: url('../assets/netflix-back-brush.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.changeBg {
+  background-color: #141414;
+  transition: all ease-in 0.2s;
+}
+
+.changeOpacity:hover .changeOpacityAll {
+  opacity: 1;
+  transition: all ease 0.5s;
+  user-select: none;
+}
+
+.transitionMovies {
+  transition: all ease 1s;
+}
+
+.scale-95:hover {
+  transition: ease-in 0.2s;
+}
+
+.setShadowLeft {
+  mask-image: linear-gradient(to left, #191818 25%, transparent 80%);
+}
+
+.gradientImage {
+  -webkit-mask-image: linear-gradient(to bottom, #191818 10%, transparent 90%);
+  mask-image: linear-gradient(to bottom, #191818 10%, transparent 90%);
+}
